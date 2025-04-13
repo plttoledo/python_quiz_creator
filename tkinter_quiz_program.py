@@ -15,53 +15,66 @@ window.title('Quiz Creator') #Title bar
 # Aesthetics
 window.configure(bg=main_clr) # Background color
 
-header = tk.Frame(window, bg="#c48c9f", height=100)
+header = tk.Frame(window, bg="#c48c9f", height=100, bd=1, relief='solid')
 header.pack(fill="x")
 
 header_label = tk.Label(header, text="Quiz Creator", bg="#c48c9f",
                         fg=font_clr, font=("Trebuchet MS", 45, "bold"))
-header_label.grid(padx=20, sticky="w")
+header_label.grid(padx=40, sticky="w")
 
-# Remember to update the question # per next question
+footer = tk.Frame(window, bg="#c48c9f", height=60, bd=1, relief='solid')
+footer.pack(fill="x", side='bottom')
+
+# Question Text
 question = tk.Label(window, text='Question:', font=('Trebuchet MS', 25, 'bold'),
                     fg=font_clr, bg=main_clr)
-question.pack(padx=20, pady=(10), anchor='w')
+question.pack(padx=40, pady=10, anchor='w')
 
-# Textbox
-textbox_q = tk.Text(window, font=('Arial', 10), height=1)
-textbox_q.pack(padx=25)
+# Question textbox
+textbox_q = tk.Text(window, font=('Arial', 15), height=1, bd=1, relief='solid')
+textbox_q.pack(padx=40, anchor='w')
 
-textbox_a = tk.Text(window, font=('Arial', 10), height=1)
-textbox_a.pack(padx=70, pady=10)
-
-textbox_b = tk.Text(window, font=('Arial', 10), height=1)
-textbox_b.pack(padx=70, pady=10)
-
-textbox_c = tk.Text(window, font=('Arial', 10), height=1)
-textbox_c.pack(padx=70, pady=10)
-
-textbox_d = tk.Text(window, font=('Arial', 10), height=1)
-textbox_d.pack(padx=70, pady=10)
-
-# Buttons, will move these to the bottom
-btn_one = Button(window, text="Next Question")
-btn_one.pack()
-
-btn_two = Button(window, text="Save")
-btn_two.pack()
-
-btn_three = Button(window, text="Exit")
-btn_three.pack()
-
-# Radio Buttons, should be beside the text boxes
+# Radio Buttons, placed beside the text boxes
 r = IntVar()
 
-radio_one = Radiobutton(window,variable=r, value=1, bg=main_clr, selectcolor=header_clr).pack()
+def answer_button(window, var_value, option_letter):
+    frame = tk.Frame(window, bg=main_clr)
+    frame.pack(padx=40, pady=10, anchor='w')
 
-radio_two = Radiobutton(window,variable=r, value=2, bg=main_clr, selectcolor=header_clr).pack()
+    textbox = tk.Text(frame, font=('Arial', 10), height=1, width=65, bd=1, relief='solid')
+    textbox.pack(side="left")
 
-radio_three = Radiobutton(window,variable=r, value=3, bg=main_clr, selectcolor=header_clr).pack()
+    radiobtn = Radiobutton(frame, variable=r, value=var_value, bg=main_clr,
+                           selectcolor=header_clr)
+    radiobtn.pack(side="left", padx=(10, 2))
 
-radio_four = Radiobutton(window,variable=r, value=4, bg=main_clr, selectcolor=header_clr).pack()
+   # Label letters at the right side
+    label = tk.Label(frame, text=option_letter, font=('Arial', 12, 'bold'),
+                     fg=font_clr, bg=main_clr)
+    label.pack(side="left", padx=(0, 10))
+
+    return textbox
+
+textbox_a = answer_button(window,1, 'A')
+textbox_b = answer_button(window,2, 'B')
+textbox_c = answer_button(window,3, 'C')
+textbox_d = answer_button(window,4, 'D')
+
+# Buttons, placed at the bottom
+btn_one = Button(window, text="Next Question", bg=header_clr,
+                 font=('Trebuchet MS', 15, 'bold'), bd=1, relief='solid', activebackground=main_clr,
+                 width=15)
+btn_one.pack(side='left', padx=40)
+
+btn_two = Button(window, text="Save", bg=header_clr,
+                 font=('Trebuchet MS', 15, 'bold'), bd=1, relief='solid', activebackground=main_clr,
+                 width=10)
+btn_two.pack(side='left', padx=0)
+
+btn_three = Button(window, text="Exit", bg=header_clr,
+                   font=('Trebuchet MS', 15, 'bold'), bd=1, relief='solid', activebackground=main_clr,
+                   width=10)
+btn_three.pack(side='left', padx=40)
+
 
 window.mainloop()
