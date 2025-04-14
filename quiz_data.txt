@@ -1,0 +1,24 @@
+Q1: dada
+   A. a (Correct)
+   B. a
+   C. a
+   D. a
+
+Q2: wasaw
+   A. a
+   B. a (Correct)
+   C. a
+   D. a
+
+Q3: wasda
+   A. a
+   B. a
+   C. a (Correct)
+   D. a
+
+Q4: awdasdawd
+   A. a
+   B. a
+   C. a
+   D. a (Correct)
+

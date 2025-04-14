@@ -36,6 +36,7 @@ textbox_q.pack(padx=40, anchor='w')
 
 # Radio Buttons, placed beside the text boxes
 r = IntVar()
+qstn_data = []
 
 def answer_button(window, var_value, option_letter):
     frame = tk.Frame(window, bg=main_clr)
@@ -60,21 +61,62 @@ textbox_b = answer_button(window,2, 'B')
 textbox_c = answer_button(window,3, 'C')
 textbox_d = answer_button(window,4, 'D')
 
+# Functionalities
+def next_question():
+    question_text = textbox_q.get('1.0', 'end').strip()
+    answers = [
+        textbox_a.get('1.0', 'end').strip(),
+        textbox_b.get('1.0', 'end').strip(),
+        textbox_c.get('1.0', 'end').strip(),
+        textbox_d.get('1.0', 'end').strip()
+    ]
+    correct = r.get()
+
+    if question_text and all(answers) and correct:
+        qstn_data.append({
+            'question': question_text,
+            'answers': answers,
+            'correct': correct
+        })
+
+        # Clear inputs when next question
+        textbox_q.delete('1.0', 'end')
+        textbox_a.delete('1.0', 'end')
+        textbox_b.delete('1.0', 'end')
+        textbox_c.delete('1.0', 'end')
+        textbox_d.delete('1.0', 'end')
+        r.set(0)
+    else:
+        print("Please input all fields and select the correct answer before going to the next question.")
+
+def save_button():
+    with open('quiz_data.txt', 'w', encoding='utf-8') as file:
+        for i, q in enumerate(qstn_data, 1):
+            file.write(f"Q{i}: {q['question']}\n")
+            for idx, ans in enumerate(q['answers']):
+                letter = chr(65 + idx)
+                correct_mark = " (Correct)" if (idx + 1) == q['correct'] else ""
+                file.write(f"   {letter}. {ans}{correct_mark}\n")
+            file.write("\n")
+    print("Quiz saved to quiz_data.txt")
+
+def exit_prog():
+    window.destroy()
+
 # Buttons, placed at the bottom
 btn_one = Button(window, text="Next Question", bg=header_clr,
                  font=('Trebuchet MS', 15, 'bold'), bd=1, relief='solid', activebackground=main_clr,
-                 width=15)
+                 width=15, command=next_question)
 btn_one.pack(side='left', padx=40)
 
 btn_two = Button(window, text="Save", bg=header_clr,
                  font=('Trebuchet MS', 15, 'bold'), bd=1, relief='solid', activebackground=main_clr,
-                 width=10)
+                 width=10, command=save_button)
 btn_two.pack(side='left', padx=0)
 
 btn_three = Button(window, text="Exit", bg=header_clr,
                    font=('Trebuchet MS', 15, 'bold'), bd=1, relief='solid', activebackground=main_clr,
-                   width=10)
+                   width=10, command=exit_prog)
 btn_three.pack(side='left', padx=40)
-
 
 window.mainloop()
