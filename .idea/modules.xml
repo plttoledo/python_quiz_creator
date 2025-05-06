@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/quiz_reader.iml" filepath="$PROJECT_DIR$/.idea/quiz_reader.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/python_quiz_creator_program.iml" filepath="$PROJECT_DIR$/.idea/python_quiz_creator_program.iml" />
+>>>>>>> 2ef97bbb6d8ad90904febc941f0109993a4b1b5d
     </modules>
   </component>
 </project>

@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="c1c1eec7-b86f-4889-b865-9a32144b93f5" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -12,6 +13,11 @@
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/quiz_reader_program.py" afterDir="false" />
+=======
+    <list default="true" id="880d236c-f730-49e2-a09c-fcc298097e04" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tkinter_quiz_program.py" beforeDir="false" afterPath="$PROJECT_DIR$/tkinter_quiz_program.py" afterDir="false" />
+>>>>>>> 2ef97bbb6d8ad90904febc941f0109993a4b1b5d
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,15 +34,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 5
 }]]></component>
   <component name="ProjectId" id="2wicVcQePYBwRE5y9DIuKwqGQnB" />
+=======
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2vdItZDcY4PO4oIr0QYbGcqeqwm" />
+>>>>>>> 2ef97bbb6d8ad90904febc941f0109993a4b1b5d
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.quiz_reader_program.executor": "Run",
@@ -45,6 +59,16 @@
     "last_opened_file_path": "C:/Users/63935/PycharmProjects/PythonProjects/python_quiz_creator_program/tkinter_quiz_program.py"
   }
 }]]></component>
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.tkinter_quiz_program.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  }
+}</component>
+>>>>>>> 2ef97bbb6d8ad90904febc941f0109993a4b1b5d
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -55,6 +79,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="c1c1eec7-b86f-4889-b865-9a32144b93f5" name="Changes" comment="" />
       <created>1746527859403</created>
       <option name="number" value="Default" />
@@ -63,4 +88,25 @@
     </task>
     <servers />
   </component>
+=======
+      <changelist id="880d236c-f730-49e2-a09c-fcc298097e04" name="Changes" comment="" />
+      <created>1744468739904</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744468739904</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+>>>>>>> 2ef97bbb6d8ad90904febc941f0109993a4b1b5d
 </project>

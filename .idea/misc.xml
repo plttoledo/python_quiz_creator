@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Black">
+<<<<<<< HEAD
     <option name="sdkName" value="Python 3.12 (quiz_reader)" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (quiz_reader)" project-jdk-type="Python SDK" />
+=======
+    <option name="sdkName" value="Python 3.12 (python_quiz_creator_program)" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (python_quiz_creator_program)" project-jdk-type="Python SDK" />
+>>>>>>> 2ef97bbb6d8ad90904febc941f0109993a4b1b5d
 </project>
