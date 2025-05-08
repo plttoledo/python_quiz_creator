@@ -148,10 +148,10 @@ def load_quiz():
 
         for q in question_data:
             correct_answer = q['answers'][q['correct'] - 1]
-
             random.shuffle(q['answers'])
 
-            q['correct'] = q['answers'].index(correct_answer) + 1
+            new_index = q['answers'].index(correct_answer) + 1
+            q['correct'] = new_index
 
         if question_data:
             show_question(0)
