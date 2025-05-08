@@ -163,6 +163,10 @@ def load_quiz():
 
 def next_question():
     global current_index
+    if var.get() == 0 and question_data:
+        print('Answer first before going to the next question.')
+        return
+    
     if current_index + 1 < len(question_data):
         current_index += 1
         show_question(current_index)
