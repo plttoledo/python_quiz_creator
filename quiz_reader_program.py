@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk, Button, Radiobutton, IntVar
+import sys
 
 # Color
 header_clr = '#d496a7' # Dark Pink
@@ -60,6 +61,14 @@ option_b = answer_field(window,2, 'B')
 option_c = answer_field(window,3, 'C')
 option_d = answer_field(window,4, 'D')
 
+# Quiz Data
+
+
+# Button Function
+
+def exit_btn():
+    window.destroy()
+
 # Bottom Buttons
 load_btn = Button(window, text="Load Quiz", bg=header_clr,
                   font=('Trebuchet MS', 15, 'bold'), bd=1, relief='solid', activebackground=main_clr,
@@ -73,9 +82,7 @@ nextq_btn.pack(side='left', padx=0)
 
 exit_btn = Button(window, text="Exit", bg=header_clr,
                   font=('Trebuchet MS', 15, 'bold'), bd=1, relief='solid', activebackground=main_clr,
-                  width=10) # Add command=
+                  width=10, command=exit_btn)
 exit_btn.pack(side='left', padx=40)
-
-
 
 window.mainloop()
