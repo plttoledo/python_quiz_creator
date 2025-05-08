@@ -156,7 +156,13 @@ def load_quiz():
     except Exception as e:
         print(f'Error in loading the quiz file: {e}')
 
-# def next_question
+def next_question():
+    global current_index
+    if current_index + 1 < len(question_data):
+        current_index += 1
+        show_question(current_index)
+    else:
+        print('End of the quiz.')
 
 
 def exit_btn():
@@ -170,7 +176,7 @@ load_btn.pack(side='left', padx=40)
 
 nextq_btn = Button(window, text="Next", bg=header_clr,
                   font=('Trebuchet MS', 15, 'bold'), bd=1, relief='solid', activebackground=main_clr,
-                  width=10) # Add command=
+                  width=10, command=next_question)
 nextq_btn.pack(side='left', padx=0)
 
 exit_btn = Button(window, text="Exit", bg=header_clr,
