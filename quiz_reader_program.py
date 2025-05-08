@@ -106,35 +106,40 @@ def load_quiz():
                     continue
 
                 lines = block.strip().split('\n')
-                if not lines or not any(line.startswith('Q') for line in lines):
+
+                if len(lines) < 2:
                     continue
 
-                question = ''
+                question_line = lines[0].strip()
+                question_text = ''
+
+                if question_line.startswith('Q') and ':' in question_line:
+                    question_text = question_line[question_line.find(':') + 1:].strip()
+                else:
+                    continue
+
                 answers = []
                 correct_index = -1
 
-                for i, line in enumerate(lines):
+                for line in lines[1:]:
                     line = line.strip()
-                    if line.startswith('Q'):
-                        question = line[line.find(':')+1].strip() if ':' in line else line[1:].strip
-                    elif line and line[0] in 'ABCD':
+                    if not line:
+                        continue
+
+                    if len(line) > 2 and line[0] in 'ABCD' and line[1] == '.':
                         option = line[0]
-                        index = ord(option) - ord('A')
 
-                        answer_text = line[line.find(':')+1:].strip() if ':' in line else line[1:].strip()
-                        answer_text = answer_text.replace('(Correct)', '').strip()
+                        answer_text = line[2:].strip()
 
-                        if '(Correct' in line:
-                            correct_index = index
+                        if '(Correct)' in line:
+                            correct_index = ord(option) - ord('A')
+                            answer_text = answer_text.replace('(Correct)','').strip()
 
                         answers.append(answer_text)
 
-                if question and answers:
-                    while len(answers) < 4:
-                        answers.append('')
-
+                if question_text and len(answers) == 4 and correct_index >= 0:
                     question_data.append({
-                        'question': question,
+                        'question': question_text,
                         'answers': answers,
                         'correct': correct_index + 1
                     })
