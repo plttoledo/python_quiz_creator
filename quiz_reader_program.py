@@ -1,5 +1,6 @@
 import tkinter as tk
-from tkinter import ttk, Button, Radiobutton, IntVar
+from tkinter import ttk, Button, Radiobutton, IntVar, filedialog
+import random
 import sys
 
 # Color
@@ -63,6 +64,7 @@ option_d = answer_field(window,4, 'D')
 
 # Quiz Data
 question_data = []
+current_index = 0
 
 # Update textbox
 def update_textbox(textbox, text):
@@ -83,8 +85,76 @@ def show_question(index):
         var.set(0)
 
 # Button Function
-# def load_quiz
+def load_quiz():
+    global  question_data, current_index
+    file_path = filedialog.askopenfilename(title='Select quiz file', filetypes=[('Text Files', "*.txt"), ('All Files', '*.*')])
 
+    if not file_path:
+        return
+
+    question_data = []
+    current_index = 0
+
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            content = file.read()
+
+            question_block = content.split('\n\n')
+
+            for block in question_block:
+                if not block.strip():
+                    continue
+
+                lines = block.strip().split('\n')
+                if not lines or not any(line.startswith('Q') for line in lines):
+                    continue
+
+                question = ''
+                answers = []
+                correct_index = -1
+
+                for i, line in enumerate(lines):
+                    line = line.strip()
+                    if line.startswith('Q'):
+                        question = line[line.find(':')+1].strip() if ':' in line else line[1:].strip
+                    elif line and line[0] in 'ABCD':
+                        option = line[0]
+                        index = ord(option) - ord('A')
+
+                        answer_text = line[line.find(':')+1:].strip() if ':' in line else line[1:].strip()
+                        answer_text = answer_text.replace('(Correct)', '').strip()
+
+                        if '(Correct' in line:
+                            correct_index = index
+
+                        answers.append(answer_text)
+
+                if question and answers:
+                    while len(answers) < 4:
+                        answers.append('')
+
+                    question_data.append({
+                        'question': question,
+                        'answers': answers,
+                        'correct': correct_index + 1
+                    })
+
+        random.shuffle(question_data)
+
+        for q in question_data:
+            correct_answer = q['answers'][q['correct'] - 1]
+
+            random.shuffle(q['answers'])
+
+            q['correct'] = q['answers'].index(correct_answer) + 1
+
+        if question_data:
+            show_question(0)
+        else:
+            print('There are no questions found in the file.')
+
+    except Exception as e:
+        print(f'Error in loading the quiz file: {e}')
 
 # def next_question
 
@@ -95,7 +165,7 @@ def exit_btn():
 # Bottom Buttons
 load_btn = Button(window, text="Load Quiz", bg=header_clr,
                   font=('Trebuchet MS', 15, 'bold'), bd=1, relief='solid', activebackground=main_clr,
-                  width=15) # Add command=
+                  width=15, command=load_quiz)
 load_btn.pack(side='left', padx=40)
 
 nextq_btn = Button(window, text="Next", bg=header_clr,
