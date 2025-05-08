@@ -2,8 +2,6 @@ import tkinter as tk
 from tkinter import ttk, Button, Radiobutton, IntVar
 import sys
 
-from tkinter_quiz_program import textbox_q
-
 # Color
 header_clr = '#d496a7' # Dark Pink
 main_clr = '#f1dede' # Light Pink
