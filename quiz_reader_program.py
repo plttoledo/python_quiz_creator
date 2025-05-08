@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import ttk, Button, Radiobutton, IntVar
 import sys
 
+from tkinter_quiz_program import textbox_q
+
 # Color
 header_clr = '#d496a7' # Dark Pink
 main_clr = '#f1dede' # Light Pink
@@ -62,14 +64,27 @@ option_c = answer_field(window,3, 'C')
 option_d = answer_field(window,4, 'D')
 
 # Quiz Data
+question_data = []
 
-# Button Function
+# Update textbox
 def update_textbox(textbox, text):
     textbox.config(state='normal')
     textbox.delete('1.0', 'end')
     textbox.insert('1.0', text)
     textbox.config(state='disabled')
 
+# Show the question
+def show_question(index):
+    if 0 <= index < len(question_data):
+        question = question_data[index]
+        update_textbox(question_textbox, question['question'])
+        update_textbox(option_a, question['answers'][0])
+        update_textbox(option_b, question['answers'][1])
+        update_textbox(option_c, question['answers'][2])
+        update_textbox(option_d, question['answers'][3])
+        var.set(0)
+
+# Button Function
 # def load_quiz
 
 
