@@ -63,8 +63,18 @@ option_d = answer_field(window,4, 'D')
 
 # Quiz Data
 
-
 # Button Function
+def update_textbox(textbox, text):
+    textbox.config(state='normal')
+    textbox.delete('1.0', 'end')
+    textbox.insert('1.0', text)
+    textbox.config(state='disabled')
+
+# def load_quiz
+
+
+# def next_question
+
 
 def exit_btn():
     window.destroy()
